@@ -1,0 +1,16 @@
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class UsersService {
+  private users = [];
+
+  findAll() {
+    return this.users;
+  }
+
+  create(user) {
+    const newUser = { id: Date.now(), ...user };
+    this.users.push(newUser);
+    return newUser;
+  }
+}
