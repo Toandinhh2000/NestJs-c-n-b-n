@@ -3,7 +3,26 @@
     "@nestjs/typeorm": "^11.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
+    "express": "^5.1.0",
     "mysql2": "^3.15.3",
     "typeorm": "^0.3.27"
-  }
+  },
+  "name": "nestjs-c-n-b-n",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Toandinhh2000/NestJs-c-n-b-n.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Toandinhh2000/NestJs-c-n-b-n/issues"
+  },
+  "homepage": "https://github.com/Toandinhh2000/NestJs-c-n-b-n#readme",
+  "description": ""
 }
