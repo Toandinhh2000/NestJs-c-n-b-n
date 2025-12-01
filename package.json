@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@nestjs/typeorm": "^11.0.0",
+    "@prisma/client": "^7.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "express": "^5.1.0",
@@ -24,5 +25,8 @@
     "url": "https://github.com/Toandinhh2000/NestJs-c-n-b-n/issues"
   },
   "homepage": "https://github.com/Toandinhh2000/NestJs-c-n-b-n#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "prisma": "^7.0.1"
+  }
 }
