@@ -1,0 +1,30 @@
+import {
+  Controller,
+  Post,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { extname } from 'path';
+
+@Controller('upload')
+export class UploadController {
+  @Post('local')
+  @UseInterceptors(FileInterceptor('file', {
+    storage: diskStorage({
+      destination: './uploads',
+      filename: (req, file, callback) => {
+        const unique = Date.now() + '-' + Math.round(Math.random() * 1e9);
+        const ext = extname(file.originalname);
+        callback(null, `${unique}${ext}`);
+      },
+    }),
+  }))
+  uploadLocal(@UploadedFile() file: Express.Multer.File) {
+    return {
+      message: 'Upload thành công!',
+      path: file.path,
+    };
+  }
+}

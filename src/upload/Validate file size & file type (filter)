@@ -1,0 +1,9 @@
+@UseInterceptors(FileInterceptor('file', {
+  limits: { fileSize: 2 * 1024 * 1024 }, // 2MB
+  fileFilter: (req, file, callback) => {
+    if (!file.mimetype.startsWith('image/')) {
+      return callback(new Error('Chỉ được upload ảnh!'), false);
+    }
+    callback(null, true);
+  },
+}))

@@ -1,0 +1,9 @@
+@Post('multiple')
+@UseInterceptors(FilesInterceptor('files', 10)) // tối đa 10 file
+uploadMultiple(@UploadedFiles() files: Express.Multer.File[]) {
+  return {
+    message: 'Upload thành công!',
+    total: files.length,
+    files,
+  };
+}
