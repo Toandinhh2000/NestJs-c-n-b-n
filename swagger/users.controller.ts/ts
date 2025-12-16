@@ -1,0 +1,12 @@
+@ApiTags('Users')
+@ApiBearerAuth('access-token')
+@UseGuards(JwtAuthGuard)
+@Controller('users')
+export class UsersController {
+
+  @ApiOperation({ summary: 'Get all users' })
+  @Get()
+  findAll() {
+    return this.usersService.findAll();
+  }
+}

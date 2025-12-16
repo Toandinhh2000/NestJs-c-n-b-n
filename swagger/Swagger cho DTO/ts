@@ -1,0 +1,24 @@
+import {
+  ApiTags,
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+} from '@nestjs/swagger';
+
+@ApiTags('Auth')
+@Controller('auth')
+export class AuthController {
+
+  @ApiOperation({ summary: 'User login' })
+  @ApiResponse({ status: 200, description: 'Login success' })
+  @Post('login')
+  login(@Body() dto: LoginDto) {
+    return this.auth.login(dto.email, dto.password);
+  }
+
+  @ApiOperation({ summary: 'Refresh access token' })
+  @Post('refresh')
+  refresh(@Body() body: any) {
+    return this.auth.refresh(body.userId, body.refreshToken);
+  }
+}
