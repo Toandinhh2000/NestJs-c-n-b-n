@@ -1,0 +1,17 @@
+@Post('refresh')
+async refresh(
+  @Req() req,
+  @Res({ passthrough: true }) res: Response,
+) {
+  const token = req.cookies.refresh_token;
+  if (!token) throw new UnauthorizedException('No refresh token');
+
+  const payload = this.jwt.verify(token);
+
+  const newAccess = this.jwt.sign(
+    { sub: payload.sub, role: payload.role },
+    { expiresIn: '15m' }
+  );
+
+  return { accessToken: newAccess };
+}
